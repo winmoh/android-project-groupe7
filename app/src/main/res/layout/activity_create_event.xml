@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateEventActivity"
+    android:background="@color/background">
+
+
+    <View
+        android:id="@+id/round_view2"
+        android:layout_width="650dp"
+        android:layout_height="650dp"
+        android:layout_marginLeft="-300dp"
+        android:layout_marginTop="-300dp"
+        android:background="@drawable/round_view2"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
+        app:layout_constraintStart_toStartOf="@+id/scrollView3"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <View
+        android:id="@+id/round_view1"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginLeft="-300dp"
+        android:layout_marginTop="-300dp"
+        android:background="@drawable/round_view"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
+        app:layout_constraintStart_toStartOf="@+id/scrollView3"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-114dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/generaleInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="Generale Info :"
+                android:textColor="@color/teal_200"
+                android:textSize="32dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/variable"/>
+
+            <EditText
+                android:id="@+id/giveEventTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="event title"
+                android:fontFamily="@font/simple"
+                android:textColorHint="@color/foreground"
+                android:textSize="24dp" />
+
+            <EditText
+                android:id="@+id/giveEventDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="event date"
+                android:fontFamily="@font/simple"
+
+                android:inputType="date"
+                android:textColorHint="@color/foreground"
+                android:textSize="24dp" />
+
+            <EditText
+                android:id="@+id/giveEventTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:fontFamily="@font/simple"
+                android:hint="event time"
+                android:inputType="time"
+                android:textColorHint="@color/foreground"
+                android:textSize="24dp" />
+
+            <EditText
+                android:id="@+id/giveEventLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:fontFamily="@font/simple"
+                android:hint="event location"
+                android:textColorHint="@color/foreground"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/target"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="Target :"
+                android:textColor="@color/teal_200"
+                android:textSize="32dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/variable"/>
+
+            <CheckBox
+                android:id="@+id/firstYearStudents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/simple"
+                android:text="1st year students"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <CheckBox
+                android:id="@+id/secondYearStudents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="2nd year students"
+                android:fontFamily="@font/simple"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <CheckBox
+                android:id="@+id/thirdYearStudents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/simple"
+                android:text="3rd year students"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <CheckBox
+                android:id="@+id/mastersStudents"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/simple"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="masters students"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <View
+                android:id="@+id/line_view"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:fontFamily="@font/simple"
+                android:background="@drawable/line_view" />
+
+            <CheckBox
+                android:id="@+id/gl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
+                android:text="GL students"
+                android:textColor="@color/foreground"
+                android:textSize="24dp"
+                android:fontFamily="@font/simple"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/gd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="GD students"
+                android:fontFamily="@font/simple"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <CheckBox
+                android:id="@+id/idf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="IDF students"
+                android:fontFamily="@font/simple"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <CheckBox
+                android:id="@+id/ssi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="SSI students"
+                android:fontFamily="@font/simple"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <CheckBox
+                android:id="@+id/sse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="SSE students"
+                android:fontFamily="@font/simple"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <CheckBox
+                android:id="@+id/sscl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/simple"
+                android:text="2SCL students"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <CheckBox
+                android:id="@+id/ia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="IA students"
+                android:fontFamily="@font/simple"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <CheckBox
+                android:id="@+id/bi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="BI students"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <CheckBox
+                android:id="@+id/idsit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="IDSIT students"
+                android:textColor="@color/foreground"
+                android:textSize="24dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right">
+
+                <Button
+                    android:id="@+id/cancelCreateEvent"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/background2"
+                    android:text="Cancel"
+                    android:textColor="@color/foreground"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/createEvent"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:backgroundTint="@color/background2"
+                    android:text="Create"
+                    android:textColor="@color/foreground"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
