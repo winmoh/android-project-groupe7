@@ -5,54 +5,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3E517A"
+    android:background="#1D1F25"
 
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/shape"
-        android:layout_width="192dp"
-        android:layout_height="114dp"
-        android:src="@drawable/shape"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.855"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.108" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="192dp"
         android:layout_height="114dp"
-        android:src="@drawable/log"
+        android:src="@drawable/again"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
-
+        app:layout_constraintVertical_bias="0.085" />
 
     <LinearLayout
         android:id="@+id/marg"
         android:layout_width="357dp"
         android:layout_height="74dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="34dp"
         android:layout_weight="0.9"
         android:background="@drawable/border"
         android:orientation="horizontal"
         android:paddingLeft="2dp"
+
+        android:backgroundTint="#2E2D2D"
         android:paddingTop="5dp"
-
-
         android:paddingRight="10dp"
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shape">
+        app:layout_constraintTop_toBottomOf="@+id/logo">
 
 
         <EditText
@@ -60,6 +47,7 @@
             android:layout_width="248dp"
             android:layout_height="70dp"
             android:layout_marginLeft="10dp"
+            android:textColor="#FFFFFF"
 
 
             android:backgroundTint="@android:color/transparent"
@@ -68,7 +56,7 @@
 
             android:hint=" username"
 
-            android:textColorHint="#FFDDE8B9"
+            android:textColorHint="#F8777A6E"
             android:textSize="23dp"
 
             app:layout_constraintBaseline_toTopOf="parent"
@@ -95,14 +83,14 @@
         android:id="@+id/linearLayout"
         android:layout_width="357dp"
         android:layout_height="74dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_weight="0.9"
         android:background="@drawable/border"
         android:orientation="horizontal"
         android:paddingLeft="2dp"
         android:paddingTop="5dp"
 
-
+        android:backgroundTint="#2E2D2D"
         android:paddingRight="10dp"
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,11 +105,12 @@
             android:layout_marginLeft="8dp"
             android:backgroundTint="@android:color/transparent"
             android:fontFamily="@font/simple"
+
             android:gravity="left"
             android:hint=" password"
             android:inputType="textPassword"
             android:textColor="#FFFFFF"
-            android:textColorHint="#FFDDE8B9"
+            android:textColorHint="#F8777A6E"
             android:textSize="23dp"
             app:layout_constraintBaseline_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -149,12 +138,12 @@
         android:id="@+id/linear1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="92dp"
 
         android:orientation="horizontal"
         android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
@@ -170,7 +159,7 @@
             android:background="@drawable/itar3"
 
 
-            android:backgroundTint="#FFDDE8B9"
+            android:backgroundTint="#3A77AC"
             android:fontFamily="@font/variable"
             android:paddingLeft="25dp"
             android:paddingTop="10dp"
@@ -201,10 +190,11 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="23dp"
-            android:fontFamily="@font/variable"
+            android:clickable="true"
 
+            android:fontFamily="@font/variable"
             android:text="Sign Up"
-            android:textColor="#FFDDE8B9"
+            android:textColor="#A9FF9800"
 
 
             android:textSize="35dp"
@@ -224,73 +214,6 @@
             app:tint="#A9FF9800"
 
             />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-
-        android:gravity="center"
-        android:orientation="horizontal"
-
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.429"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear1"
-        app:layout_constraintVertical_bias="0.548">
-
-        <ImageView
-            android:id="@+id/linkedin"
-            android:layout_width="40dp"
-            android:layout_height="44dp"
-
-            android:src="@drawable/img_8"
-
-            app:layout_constraintBaseline_toTopOf="parent"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:tint="#B0DDE8B9" />
-
-        <ImageView
-            android:id="@+id/facebook"
-            android:layout_width="40dp"
-            android:layout_height="33dp"
-            android:layout_marginLeft="30dp"
-            android:src="@drawable/img_9"
-
-            app:layout_constraintBaseline_toTopOf="parent"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:tint="#B0DDE8B9" />
-
-        <ImageView
-            android:id="@+id/gmail"
-            android:layout_width="40dp"
-            android:layout_height="44dp"
-            android:layout_marginLeft="30dp"
-            android:src="@drawable/img_10"
-
-            app:layout_constraintBaseline_toTopOf="parent"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:tint="#B0DDE8B9" />
-
-        <ImageView
-            android:id="@+id/instagram"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="35dp"
-            android:src="@drawable/img_11"
-
-            app:layout_constraintBaseline_toTopOf="parent"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:tint="#B0DDE8B9" />
-
 
     </LinearLayout>
 

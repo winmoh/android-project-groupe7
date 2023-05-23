@@ -29,7 +29,14 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        Button back =binding.backButton;
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nt=new Intent(signup.this,MainActivity.class);
+                startActivity(nt);
+            }
+        });
         binding.signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,14 +75,13 @@ public class signup extends AppCompatActivity {
                                     binding.password.setText("");
                                     binding.confirmpass.setText("");
 
-                                    Intent main=new Intent(signup.this,mainPage.class);
+                                    Intent main = new Intent(signup.this, mainPage.class);
+                                    main.putExtra("username",userName);
                                     startActivity(main);
-
                                 }
                             });
                     Toast.makeText(signup.this, "registred succefuly", Toast.LENGTH_SHORT);
-                    Intent main = new Intent(signup.this, mainPage.class);
-                    startActivity(main);
+
 
                 }
 

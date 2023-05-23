@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projetandroid.databinding.ActivityMainBinding;
@@ -33,6 +34,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bind=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(bind.getRoot());
+
+        TextView text=bind.sig;
+        text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent inten=new Intent(MainActivity.this,signup.class);
+                startActivity(inten);
+            }
+        });
+
         Button login=(Button)bind.connect;
 
        login.setOnClickListener(new View.OnClickListener() {
@@ -52,10 +64,11 @@ public class MainActivity extends AppCompatActivity {
                                 String code=snapshot.child(username).child("password").getValue(String.class);
 
                                 if(code.equals(password)){
+
                                     Intent verMain= new Intent(MainActivity.this,mainPage.class);
+                                    verMain.putExtra("username",username);
                                     startActivity(verMain);
-                                    Intent intent=new Intent(MainActivity.this,mainPage.class);
-                                    startActivity(intent);
+
                                 }
                                 else{
                                     Toast.makeText(MainActivity.this,"incorrect password",Toast.LENGTH_LONG).show();

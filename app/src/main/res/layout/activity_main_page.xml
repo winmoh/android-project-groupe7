@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="#1D1F25"
+
     tools:context=".MainActivity">
 
 
@@ -15,11 +17,12 @@
         android:layout_height="200dp"
         android:background="@drawable/bg_view"/>
 
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/top_view"
-        android:rowCount="3"
+        android:rowCount="4"
         android:columnCount="2"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -60,6 +63,7 @@
                     android:text="create an event"
                     android:textColor="@color/foreground"
                     android:textSize="20dp"
+                    android:fontFamily="@font/variable"
                     android:layout_gravity="center_horizontal"/>
 
 
@@ -99,6 +103,7 @@
                     android:layout_height="wrap_content"
                     android:text="attend an event"
                     android:textColor="@color/foreground"
+                    android:fontFamily="@font/variable"
                     android:textSize="20dp"
                     android:layout_gravity="center_horizontal"/>
 
@@ -140,6 +145,7 @@
                     android:text="events list"
                     android:textColor="@color/foreground"
                     android:textSize="20dp"
+                    android:fontFamily="@font/variable"
                     android:layout_gravity="center_horizontal"/>
 
 
@@ -180,6 +186,7 @@
                     android:text="manage events"
                     android:textColor="@color/foreground"
                     android:textSize="20dp"
+                    android:fontFamily="@font/variable"
                     android:layout_gravity="center_horizontal"/>
 
 
@@ -220,6 +227,7 @@
                     android:text="public events"
                     android:textColor="@color/foreground"
                     android:textSize="20dp"
+                    android:fontFamily="@font/variable"
                     android:layout_gravity="center_horizontal"/>
 
 
@@ -259,6 +267,49 @@
                     android:layout_height="wrap_content"
                     android:text="profile"
                     android:textColor="@color/foreground"
+                    android:fontFamily="@font/variable"
+                    android:textSize="20dp"
+                    android:layout_gravity="center_horizontal"/>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/annualEvents"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="30dp"
+            android:layout_margin="10dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/background"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+
+                    android:src="@drawable/baseline_developer_board_24"
+                    app:tint="#A9FF9800"
+                    android:background="@color/background"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:id="@+id/annual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Annual Events"
+                    android:textColor="@color/foreground"
+                    android:fontFamily="@font/variable"
                     android:textSize="20dp"
                     android:layout_gravity="center_horizontal"/>
 
@@ -267,6 +318,50 @@
 
         </androidx.cardview.widget.CardView>
 
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/discoverClubs"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="30dp"
+        android:layout_margin="10dp"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:layout_row="3"
+        android:layout_column="1"
+        android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/background"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+
+                android:src="@drawable/discover"
+                app:tint="#A9FF9800"
+                android:background="@color/background"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/ensiasClubs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ensias clubs"
+                android:textColor="@color/foreground"
+                android:fontFamily="@font/variable"
+                android:textSize="20dp"
+                android:layout_gravity="center_horizontal"/>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
     </GridLayout>
 
     <TextView
@@ -274,6 +369,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dashboard"
+        android:fontFamily="@font/simple"
         android:textColor="@color/background"
         android:textSize="50dp"
         android:textStyle="bold"
@@ -289,11 +385,13 @@
         android:text="logout"
         android:textColor="@color/background3"
         android:textSize="25dp"
+        android:fontFamily="@font/variable"
         android:textStyle="bold"
         android:layout_alignParentRight="true"
         android:clickable="true"
         android:paddingVertical="3dp"
         android:paddingHorizontal="7dp"
+
         android:background="@drawable/rectangle_view"
         />
 
@@ -304,10 +402,13 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:text="username"
+
         android:textColor="@color/background"
         android:textSize="25dp"
         android:textStyle="bold"
+        android:fontFamily="@font/variable"
         />
+
 
 
 </RelativeLayout>

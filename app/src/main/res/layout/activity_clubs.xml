@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1D1F25"
+    tools:context=".clubs">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="110dp"
+        android:fontFamily="@font/simple"
+
+        android:text="ENSIAS CLUBS"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <GridLayout
+            android:id="@+id/clubsGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="0dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center_horizontal"
+
+            android:columnCount="3"
+            android:rowCount="7"
+
+
+            >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/quran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+
+
+                android:layout_column="0"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/quranIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/quran" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cindh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_marginLeft="10dp"
+
+
+                android:layout_column="1"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/cindhIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/cindh" />
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/insec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_marginLeft="10dp"
+
+
+                android:layout_column="2"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/insecIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/insec" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!--########################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/it"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_marginTop="10dp"
+
+
+                android:layout_column="0"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/itIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/it" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ieee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+
+
+                android:layout_column="1"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/ieeeIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/ieee" />
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fintech"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+
+
+                android:layout_column="2"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/fintechIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/fintech" />
+
+            </androidx.cardview.widget.CardView>
+            <!--########################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/enactus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_marginTop="10dp"
+
+
+                android:layout_column="0"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/enactusIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/enactus1" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/robotic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+
+
+                android:layout_column="1"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/roboticIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/robotic" />
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/bridge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+
+
+                android:layout_column="2"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/bridgeIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/bridge" />
+
+            </androidx.cardview.widget.CardView>
+            <!--########################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_marginTop="10dp"
+
+
+                android:layout_column="0"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/iaIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/ia" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+
+
+                android:layout_column="1"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/cjeIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/cje" />
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/olympiades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+
+
+                android:layout_column="2"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/olympiadesIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/olympiades" />
+
+            </androidx.cardview.widget.CardView>
+
+        <!--########################################################################-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sportif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_marginTop="10dp"
+
+
+            android:layout_column="0"
+
+            android:backgroundTint="#323439"
+
+
+            app:cardElevation="30dp"
+            android:clickable="true"
+
+            android:padding="0dp">
+
+            <ImageView
+                android:id="@+id/sportifIcon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+
+                android:src="@drawable/sportif" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ultras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+
+
+            android:layout_column="1"
+
+            android:backgroundTint="#323439"
+
+
+            app:cardElevation="30dp"
+            android:clickable="true"
+
+            android:padding="0dp">
+
+            <ImageView
+                android:id="@+id/ultrasIcon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+
+                android:src="@drawable/ultras" />
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/houseofart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+
+
+            android:layout_column="2"
+
+            android:backgroundTint="#323439"
+
+
+            app:cardElevation="30dp"
+            android:clickable="true"
+
+            android:padding="0dp">
+
+            <ImageView
+                android:id="@+id/houseofartIcon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+
+                android:src="@drawable/houseofart" />
+
+        </androidx.cardview.widget.CardView>
+            <!--########################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tizi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_marginTop="10dp"
+
+
+                android:layout_column="0"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/tiziIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/tizi" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/hultprize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+
+
+                android:layout_column="1"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/hultprizeIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/hultprize" />
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ensiastv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+
+
+                android:layout_column="2"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/ensiastvIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/ensiastv" />
+
+            </androidx.cardview.widget.CardView>
+            <!--########################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/forum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_marginTop="10dp"
+
+
+                android:layout_column="0"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/forumIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/forum" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tedx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+
+
+                android:layout_column="1"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/tedxIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/tedx" />
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/adei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+
+
+                android:layout_column="2"
+
+                android:backgroundTint="#323439"
+
+
+                app:cardElevation="30dp"
+                android:clickable="true"
+
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/adeiIcon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:gravity="center"
+
+                    android:src="@drawable/adei" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </GridLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

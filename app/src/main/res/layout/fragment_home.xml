@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homeFragment"
+
+    android:background="@color/background"
+    >
+        <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/border"
+        android:orientation="horizontal"
+        android:backgroundTint="#2E2D2D"
+
+
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/searchicon"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:backgroundTint="@android:color/transparent"
+            android:src="@drawable/search"
+
+            app:tint="#837E7E" />
+
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="354dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="30dp"
+            android:hint="event's name"
+            android:background="@null"
+
+            android:fontFamily="@font/simple"
+            android:textColorHint="#837E7E"
+            android:layout_marginLeft="30dp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search">
+
+        <GridLayout
+            android:id="@+id/events"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/search"
+            android:paddingBottom="120dp"
+            android:rowCount="100"
+            android:columnCount="1"
+            >
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/itholic"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                >
+                <LinearLayout
+                    android:id="@+id/itholicsection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="0dp">
+                    <ImageView
+                        android:id="@+id/itholicImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/itholic"/>
+                    <LinearLayout
+                        android:id="@+id/itholicSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+
+                        >
+                        <TextView
+                            android:id="@+id/itholicName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:text="ItHolic V2"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/itholicClub"
+                            android:layout_width="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:layout_marginTop="10dp"
+                            android:text="IT CLUB"
+                            android:textColor="@color/white"
+
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/itholicDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:text="10,11 February"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/mcsc"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                >
+                <LinearLayout
+                    android:id="@+id/mcscSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="0dp">
+                    <ImageView
+                        android:id="@+id/mcscImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/mcsc"/>
+                    <LinearLayout
+                        android:id="@+id/mcscInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+                        >
+                        <TextView
+                            android:id="@+id/mscsName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="MCSC V10"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/mcscCulb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+
+
+                            android:text="INSEC"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/mcscDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="2,3 and 4 march"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/caravane"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                >
+                <LinearLayout
+                    android:id="@+id/convoiSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="0dp">
+                    <ImageView
+                        android:id="@+id/convoiImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/convoi"/>
+                    <LinearLayout
+                        android:id="@+id/convoiInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+                        >
+                        <TextView
+                            android:id="@+id/convoiName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="Convoi Socio-Médical V10"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/convoiCulb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+
+
+                            android:text="CINDH"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/convoiDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/simple"
+
+
+                            android:text="3,4 and 5 march"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/journee"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                >
+                <LinearLayout
+                    android:id="@+id/journeeSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="0dp">
+                    <ImageView
+                        android:id="@+id/journeeImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/journey"/>
+                    <LinearLayout
+                        android:id="@+id/journeeInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+                        >
+                        <TextView
+                            android:id="@+id/journeeName"
+                            android:layout_width="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+
+
+
+                            android:text="Journée ENSIAS V8"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/journeeCulb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+                            android:layout_marginTop="10dp"
+
+
+                            android:text="OLYMPIADES"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/journeeDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+                            android:text="10,11 and 12 march"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/japan"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                >
+                <LinearLayout
+                    android:id="@+id/japanSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="0dp">
+                    <ImageView
+                        android:id="@+id/japanImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/japan"/>
+                    <LinearLayout
+                        android:id="@+id/japanInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+                        >
+                        <TextView
+                            android:id="@+id/japanName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+
+
+                            android:text="Japan Day V9"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:id="@+id/japanCulb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+
+                            android:text="CLUB JAPONAIS ENSIAS(CJE)"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/japanDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="12 february"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/minij"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                >
+                <LinearLayout
+                    android:id="@+id/minijSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="0dp">
+                    <ImageView
+                        android:id="@+id/minijImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/minij"/>
+                    <LinearLayout
+                        android:id="@+id/minijInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+                        >
+                        <TextView
+                            android:id="@+id/minijName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+                            android:text="Mini Journée V8"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/minijCulb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+
+                            android:text="OLYMPIADES"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/minijDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+
+
+                            android:text="5 octobre"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/hackaton"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                >
+                <LinearLayout
+                    android:id="@+id/hackatonSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="0dp">
+                    <ImageView
+                        android:id="@+id/hackatonImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/japan"/>
+                    <LinearLayout
+                        android:id="@+id/hackatonInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+                        >
+                        <TextView
+                            android:id="@+id/hackatonName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="Hackaton V2"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/hackatonCulb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+
+
+                            android:text="FINTECH"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/hackatonDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="17,18 and 19 March"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/robot"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                >
+                <LinearLayout
+                    android:id="@+id/robotSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="0dp">
+                    <ImageView
+                        android:id="@+id/robotImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/robot"/>
+                    <LinearLayout
+                        android:id="@+id/robotInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+                        >
+                        <TextView
+                            android:id="@+id/robotName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="Robotics Days V2"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/robotCulb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+
+
+                            android:text="ROBOTICS"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/robotDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="1 and 2 April"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/integration"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                >
+                <LinearLayout
+                    android:id="@+id/integrationSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="0dp">
+                    <ImageView
+                        android:id="@+id/integrationImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/integration"/>
+                    <LinearLayout
+                        android:id="@+id/integrationInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+                        >
+                        <TextView
+                            android:id="@+id/integrationName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="Les tournois Sportifs d'intégration"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/itegrationCulb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+
+
+                            android:text="CLUB SPORTIF ENSIAS"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/integrationDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="5 Octobre"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tournoi"
+
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                >
+                <LinearLayout
+                    android:id="@+id/tournoiSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="0dp">
+                    <ImageView
+                        android:id="@+id/tournoiImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tournoi"/>
+                    <LinearLayout
+                        android:id="@+id/tournoiInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+                        >
+                        <TextView
+                            android:id="@+id/tournoiName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="Tournoi de ramadan ENSIAS"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/tournoiCulb"
+                            android:layout_width="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:layout_marginTop="10dp"
+
+
+                            android:text="CLUB SPORTIF ENSIAS"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/tournoiDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="Mois de ramadan"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!--##########################################################################################-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/codeland"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/events"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+
+                >
+                <LinearLayout
+                    android:id="@+id/codeSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="0dp">
+                    <ImageView
+                        android:id="@+id/codeImage"
+                        android:layout_height="150dp"
+                        android:layout_width="120dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/code"/>
+                    <LinearLayout
+                        android:id="@+id/codeInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+
+                        >
+                        <TextView
+                            android:id="@+id/codeName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="The 100 days in CODELAND "
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/codeCulb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"
+
+                            android:text="IEEE ENSIAS"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                        <TextView
+                            android:id="@+id/codeDate"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/simple"
+                            android:textStyle="bold"
+
+
+                            android:text="15 December"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+        </GridLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
