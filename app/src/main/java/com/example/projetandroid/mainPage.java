@@ -1,14 +1,24 @@
 package com.example.projetandroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class mainPage extends AppCompatActivity implements View.OnClickListener {
+
 
     private View createEventCard,attendEventCard,eventsToAttendCard,
             manageYourEventsCard,EventsRecommendationCard,profileCard,annualEvents,discoverClubs
@@ -20,12 +30,59 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener 
 
     private AttendEventDialog attendEventDialog;
 
+    FirebaseDatabase db;
+    DatabaseReference adminsRef;
+
     @Override
     protected void onStart() {
         super.onStart();
 
         username = findViewById(R.id.username);
         username.setText(this.getIntent().getStringExtra("username"));
+        db = FirebaseDatabase.getInstance();
+        adminsRef = db.getReference("admins");
+        adminsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (!snapshot.hasChild(username.getText().toString())){
+                    ((GridLayout)findViewById(R.id.gridLayout)).removeViewAt(0);
+                    ((GridLayout)findViewById(R.id.gridLayout)).removeViewAt(2);
+
+                    GridLayout.LayoutParams params = (GridLayout.LayoutParams) findViewById(R.id.eventsToAttendCard).getLayoutParams();
+                    params.rowSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
+                    params.columnSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
+                    ((CardView)findViewById(R.id.eventsToAttendCard)).setLayoutParams(params);
+
+                    params = (GridLayout.LayoutParams) findViewById(R.id.profileCard).getLayoutParams();
+                    params.rowSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
+                    params.columnSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
+                    ((CardView)findViewById(R.id.profileCard)).setLayoutParams(params);
+
+                    params = (GridLayout.LayoutParams) findViewById(R.id.EventsRecommendationCard).getLayoutParams();
+                    params.rowSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
+                    params.columnSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
+                    ((CardView)findViewById(R.id.EventsRecommendationCard)).setLayoutParams(params);
+
+                    params = (GridLayout.LayoutParams) findViewById(R.id.discoverClubs).getLayoutParams();
+                    params.rowSpec = GridLayout.spec(2, GridLayout.FILL, 1f);
+                    params.columnSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
+                    ((CardView)findViewById(R.id.discoverClubs)).setLayoutParams(params);
+
+                    params = (GridLayout.LayoutParams) findViewById(R.id.annualEvents).getLayoutParams();
+                    params.rowSpec = GridLayout.spec(2, GridLayout.FILL, 1f);
+                    params.columnSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
+                    ((CardView)findViewById(R.id.annualEvents)).setLayoutParams(params);
+
+                    ((GridLayout)findViewById(R.id.gridLayout)).setRowCount(3);
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     @Override
