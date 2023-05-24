@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClubsInfo"
+    android:background="@color/background">
+
+    <ImageView
+        android:id="@+id/clubInfoImage"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/clubName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="club's name"
+        android:textColor="@color/foreground"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clubInfoImage" />
+
+    <TextView
+        android:id="@+id/clubPresident"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="@+id/clubName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/clubName"
+        app:layout_constraintTop_toBottomOf="@+id/clubName"
+        android:text="Club's president"
+        android:textColor="@color/foreground"
+        android:textSize="30sp"
+        android:paddingLeft="10sp"/>
+
+    <TextView
+        android:id="@+id/clubCreationDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="right"
+        android:paddingRight="15sp"
+        android:text="12/02/2009"
+        android:textColor="@color/foreground"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/clubPresident"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/clubPresident"
+        app:layout_constraintTop_toBottomOf="@+id/clubPresident" />
+
+    <View
+        android:id="@+id/lineUnderDateInClubInfo"
+        android:layout_width="160sp"
+        android:layout_height="2sp"
+        android:background="@drawable/line_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clubCreationDate" />
+
+    <TextView
+        android:id="@+id/clubDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:padding="10sp"
+        android:text="Here's the club's description"
+        android:textColor="@color/foreground"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/clubCreationDate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/clubCreationDate"
+        app:layout_constraintTop_toBottomOf="@+id/clubCreationDate" />
+
+    <Button
+        android:id="@+id/closeClubInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/foreground"
+        android:text="Close"
+        android:textColor="@color/background"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/clubDescription"
+        app:layout_constraintTop_toBottomOf="@+id/clubDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
