@@ -14,13 +14,18 @@ import android.widget.Toast;
 import com.example.projetandroid.databinding.ActivitySignupBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import android.util.Patterns;
 
 public class signup extends AppCompatActivity {
     ActivitySignupBinding binding;
     String userName, Phone, Email, Password;
+
 
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("app users");
 
@@ -40,6 +45,7 @@ public class signup extends AppCompatActivity {
         binding.signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 userName = binding.username.getText().toString();
                 Phone = binding.phone.getText().toString();
@@ -62,28 +68,42 @@ public class signup extends AppCompatActivity {
                 if (!Password.equals(Password2)) {
                     Toast.makeText(signup.this, "passwords don't match", Toast.LENGTH_SHORT).show();
                 }
-                if (userName.length() >= 6 && userName.length() <= 25 && !userName.contains(" ") && userName.trim().matches("^[a-zA-Z0-9]+$") && Phone.matches("^\\+212[\\d]{9}$") && Email.matches(emailPattern) && Password.length() >= 8 && Password.equals(Password2)) {
-                    Users user = new Users(userName, Email, Phone, Password);
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.hasChild(userName)){
+                            Toast.makeText(signup.this, "username already exists", Toast.LENGTH_SHORT).show();
+                        }else{
+                            if (userName.length() >= 6 && userName.length() <= 25 && !userName.contains(" ") && userName.trim().matches("^[a-zA-Z0-9]+$") && Phone.matches("^\\+212[\\d]{9}$") && Email.matches(emailPattern) && Password.length() >= 8 && Password.equals(Password2)) {
+                                Users user = new Users(userName, Email, Phone, Password);
 
 
-                    reference.child(userName).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    binding.username.setText("");
-                                    binding.email.setText("");
-                                    binding.phone.setText("");
-                                    binding.password.setText("");
-                                    binding.confirmpass.setText("");
+                                reference.child(userName).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        binding.username.setText("");
+                                        binding.email.setText("");
+                                        binding.phone.setText("");
+                                        binding.password.setText("");
+                                        binding.confirmpass.setText("");
 
-                                    Intent main = new Intent(signup.this, mainPage.class);
-                                    main.putExtra("username",userName);
-                                    startActivity(main);
-                                }
-                            });
-                    Toast.makeText(signup.this, "registred succefuly", Toast.LENGTH_SHORT);
+                                        Intent main = new Intent(signup.this, mainPage.class);
+                                        main.putExtra("username",userName);
+                                        startActivity(main);
+                                    }
+                                });
+                                Toast.makeText(signup.this, "registred succefuly", Toast.LENGTH_SHORT);
 
 
-                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
             }
         });
