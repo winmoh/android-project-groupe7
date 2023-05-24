@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +21,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
 
-    EditText editUsername,editEmail,editPhone,editPassword;
+    EditText editEmail,editPhone,editPassword;
+    TextView usernameField;
 
     Button saveChanges;
 
@@ -35,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         userRef = database.getReference("app users").child(username);
 
-        editUsername = findViewById(R.id.editUsername);
+        usernameField = findViewById(R.id.editUsername);
         editEmail = findViewById(R.id.editEmail);
         editPhone = findViewById(R.id.editPhone);
         editPassword = findViewById(R.id.editPassword);
@@ -51,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         });
 
-        editUsername.setText(username);
+        usernameField.setText(username);
 
         userRef.child("email").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

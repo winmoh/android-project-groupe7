@@ -299,9 +299,8 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-
                     android:src="@drawable/baseline_developer_board_24"
-                    app:tint="#A9FF9800"
+
                     android:background="@color/background"
                     android:layout_gravity="center_horizontal"/>
                 <TextView
@@ -345,7 +344,6 @@
                 android:layout_height="80dp"
 
                 android:src="@drawable/discover"
-                app:tint="#A9FF9800"
                 android:background="@color/background"
                 android:layout_gravity="center_horizontal"/>
             <TextView
