@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,16 +14,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +47,11 @@ public class EventsListActivity extends AppCompatActivity {
 
     DatabaseReference eventAttendeesRef,eventsRef;
 
+    FirebaseStorage storage;
+    StorageReference sref;
+
+
+
     Query eventsToAttendQuery;
 
     ArrayList<EventItem> events_to_attend_array = new ArrayList<>();
@@ -49,6 +65,7 @@ public class EventsListActivity extends AppCompatActivity {
 
         username=this.getIntent().getStringExtra("username");
         eventItems = findViewById(R.id.eventItems);
+        storage=FirebaseStorage.getInstance();
 
         database = FirebaseDatabase.getInstance();
         eventAttendeesRef = database.getReference("eventAttendee");
@@ -69,8 +86,7 @@ public class EventsListActivity extends AppCompatActivity {
                 titleTextView.setText(currentEvent.getTitle());
 
 
-                TextView clubTextView = convertView.findViewById(R.id.clubName);
-                clubTextView.setText(currentEvent.getClub());
+
 
 
                 TextView dateTextView = convertView.findViewById(R.id.eventItemDate);
@@ -83,6 +99,32 @@ public class EventsListActivity extends AppCompatActivity {
 
                 TextView locationTextView = convertView.findViewById(R.id.eventItemLocation);
                 locationTextView.setText(currentEvent.getLocation());
+                ImageView eventImage=convertView.findViewById(R.id.eventImage);
+                String imageUrl=currentEvent.getEventImage();
+                sref=storage.getReferenceFromUrl(imageUrl);
+
+                try{
+                    File LocalFile=File.createTempFile("imageHolder",".jpg");
+                    sref.getFile(LocalFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                            Bitmap bitmap= BitmapFactory.decodeFile(LocalFile.getAbsolutePath());
+                            eventImage.setImageBitmap(bitmap);
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(EventsListActivity.this,e.getMessage(),Toast.LENGTH_SHORT);
+                        }
+                    });
+                }
+                catch(IOException e){
+                    e.setStackTrace(e.getStackTrace());
+                }
+
+
+
 
                 eventItemCancel = convertView.findViewById(R.id.eventItemCancel);
 
