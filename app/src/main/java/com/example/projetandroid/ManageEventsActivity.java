@@ -113,8 +113,10 @@ public class ManageEventsActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             EventItem eventItem = snapshot.getValue(EventItem.class);
-                            your_events.add(eventItem);
-                            adapter.notifyDataSetChanged();
+                            if(!(eventItem==null)){
+                                your_events.add(eventItem);
+                                adapter.notifyDataSetChanged();
+                            }
                         }
 
                         @Override

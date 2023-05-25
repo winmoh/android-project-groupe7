@@ -97,4 +97,17 @@
         app:layout_constraintEnd_toEndOf="@+id/clubDescription"
         app:layout_constraintTop_toBottomOf="@+id/clubDescription" />
 
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:theme="@style/RatingBar"
+        android:rating="2"
+        android:padding="1sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/closeClubInfo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

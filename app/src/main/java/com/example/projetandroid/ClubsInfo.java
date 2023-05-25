@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,8 @@ public class ClubsInfo extends AppCompatActivity {
 
     ImageView clubInfoImage;
 
+    RatingBar ratingBar;
+
     TextView clubName,clubPresident,clubCreationDate,clubDescription;
 
     Button closeClubInfo;
@@ -26,17 +29,20 @@ public class ClubsInfo extends AppCompatActivity {
 
     FirebaseDatabase db;
 
-    DatabaseReference clubRef;
+    DatabaseReference clubRef,ratingsRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clubs_info);
+
+        ratingBar = findViewById(R.id.ratingBar);
 
         username = this.getIntent().getStringExtra("username");
         club = this.getIntent().getStringExtra("club");
 
         db = FirebaseDatabase.getInstance();
         clubRef = db.getReference("clubs").child(club);
+        ratingsRef = db.getReference("clubsRatings");
 
         clubInfoImage = findViewById(R.id.clubInfoImage);
         setImage();
@@ -66,6 +72,13 @@ public class ClubsInfo extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        ratingBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ratingsRef.child(club).child(username).setValue(ratingBar.getRating());
             }
         });
 
