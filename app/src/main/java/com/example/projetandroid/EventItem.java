@@ -10,6 +10,15 @@ public class EventItem {
     private String time;
     private String is_private;
     private String eventCode;
+    private String eventImage;
+
+    public String getEventImage() {
+        return eventImage;
+    }
+
+    public void setEventImage(String evenImage) {
+        this.eventImage = evenImage;
+    }
 
     public String getId() {
         return id;
@@ -80,7 +89,8 @@ public class EventItem {
 
     public EventItem(String id, String club, String title,
                      String location, String date, String time,
-                     String is_private, String eventCode) {
+                     String is_private, String eventCode,String eventImage) {
+        this.eventImage=eventImage;
         this.id = id;
         this.club = club;
         this.title = title;
