@@ -195,6 +195,9 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
                     finish();
                 }
                 break;
+            case R.id.cancelCreateEvent:
+                finish();
+                break;
         }
     }
 
