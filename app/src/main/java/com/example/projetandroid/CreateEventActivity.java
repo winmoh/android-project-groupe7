@@ -1,7 +1,20 @@
 package com.example.projetandroid;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -12,6 +25,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -19,8 +33,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,9 +49,11 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
     String username;
     FirebaseDatabase database;
     DatabaseReference ref,eventsOwnerRef;
+    String imageURL;
     private Calendar selectedTime;
-
+    private Uri uri;
     private String eventId;
+    private ImageView giveEventPhoto;
 
     EditText giveEventTitle, giveEventDate,
             giveEventTime, giveEventLocation;
@@ -62,6 +80,7 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         giveEventTitle = findViewById(R.id.giveEventTitle);
         giveEventDate = findViewById(R.id.giveEventDate);
         giveEventDate.setInputType(InputType.TYPE_NULL);
+        giveEventPhoto=findViewById(R.id.eventPhoto);
         //event date input conditions
         // Create a DatePickerDialog.OnDateSetListener
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -148,6 +167,33 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         createEvent.setOnClickListener(this);
         cancelCreateEvent.setOnClickListener(this);
 
+        ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Intent data = result.getData();
+                            uri = data.getData();
+                            giveEventPhoto.setImageURI(uri);
+                        } else {
+                            Toast.makeText(CreateEventActivity.this, "No Image Selected", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+        giveEventPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent photoPicker = new Intent(Intent.ACTION_PICK);
+                photoPicker.setType("image/*");
+                activityResultLauncher.launch(photoPicker);
+            }
+        });
+
+        // Set click listener for the save button
+
+
     }
 
 
@@ -172,34 +218,56 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
                     locationRequired.setText("*Location Required");
                     break;
                 }
-                String club="CLUB";
-                eventId=ref.push().getKey();
-                eventsOwnerRef.child(username).child(eventId).setValue("true");
-                ref.child(eventId).child("id").setValue(eventId);
-                ref.child(eventId).child("club").setValue(club);
-                ref.child(eventId).child("location").setValue(giveEventLocation.getText().toString());
-                ref.child(eventId).child("date").setValue(giveEventDate.getText().toString());
-                ref.child(eventId).child("time").setValue(giveEventTime.getText().toString());
-                ref.child(eventId).child("title").setValue(giveEventTitle.getText().toString());
-                if(makeItPrivate.isChecked()){
-                    code = new CodeGenerator().getCode();
-                    ref.child(eventId).child("is_private").setValue("true");
-                    ref.child(eventId).child("eventCode").setValue(code);
-                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("label", code);
-                    clipboard.setPrimaryClip(clip);
-                    displayCodeDialog();
-                }else {
-                    ref.child(eventId).child("is_private").setValue("false");
-                    ref.child(eventId).child("eventCode").setValue("");
-                    finish();
-                }
+                StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Android images")
+                        .child(uri.getLastPathSegment());
+
+                storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                        while (!uriTask.isComplete()) ;
+                        Uri urlImage = uriTask.getResult();
+                        imageURL = urlImage.toString();
+                        String club="CLUB";
+                        eventId=ref.push().getKey();
+                        eventsOwnerRef.child(username).child(eventId).setValue("true");
+                        ref.child(eventId).child("id").setValue(eventId);
+                        ref.child(eventId).child("club").setValue(club);
+                        ref.child(eventId).child("location").setValue(giveEventLocation.getText().toString());
+                        ref.child(eventId).child("date").setValue(giveEventDate.getText().toString());
+                        ref.child(eventId).child("time").setValue(giveEventTime.getText().toString());
+                        ref.child(eventId).child("title").setValue(giveEventTitle.getText().toString());
+                        ref.child(eventId).child("eventImage").setValue(imageURL);
+                        if(makeItPrivate.isChecked()){
+                            code = new CodeGenerator().getCode();
+                            ref.child(eventId).child("is_private").setValue("true");
+                            ref.child(eventId).child("eventCode").setValue(code);
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("label", code);
+                            clipboard.setPrimaryClip(clip);
+                            displayCodeDialog();
+                        }else {
+                            ref.child(eventId).child("is_private").setValue("false");
+                            ref.child(eventId).child("eventCode").setValue("");
+                            finish();
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(CreateEventActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                });
                 break;
             case R.id.cancelCreateEvent:
                 finish();
                 break;
         }
+
+
     }
+
 
     private void displayCodeDialog() {
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);

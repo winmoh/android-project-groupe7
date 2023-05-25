@@ -33,57 +33,7 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener 
     FirebaseDatabase db;
     DatabaseReference adminsRef;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-        username = findViewById(R.id.username);
-        username.setText(this.getIntent().getStringExtra("username"));
-        db = FirebaseDatabase.getInstance();
-        adminsRef = db.getReference("admins");
-        adminsRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (!snapshot.hasChild(username.getText().toString())){
-                    ((GridLayout)findViewById(R.id.gridLayout)).removeViewAt(0);
-                    ((GridLayout)findViewById(R.id.gridLayout)).removeViewAt(2);
-
-                    GridLayout.LayoutParams params = (GridLayout.LayoutParams) findViewById(R.id.eventsToAttendCard).getLayoutParams();
-                    params.rowSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
-                    params.columnSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
-                    ((CardView)findViewById(R.id.eventsToAttendCard)).setLayoutParams(params);
-
-                    params = (GridLayout.LayoutParams) findViewById(R.id.profileCard).getLayoutParams();
-                    params.rowSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
-                    params.columnSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
-                    ((CardView)findViewById(R.id.profileCard)).setLayoutParams(params);
-
-                    params = (GridLayout.LayoutParams) findViewById(R.id.EventsRecommendationCard).getLayoutParams();
-                    params.rowSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
-                    params.columnSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
-                    ((CardView)findViewById(R.id.EventsRecommendationCard)).setLayoutParams(params);
-
-                    params = (GridLayout.LayoutParams) findViewById(R.id.discoverClubs).getLayoutParams();
-                    params.rowSpec = GridLayout.spec(2, GridLayout.FILL, 1f);
-                    params.columnSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
-                    ((CardView)findViewById(R.id.discoverClubs)).setLayoutParams(params);
-
-                    params = (GridLayout.LayoutParams) findViewById(R.id.annualEvents).getLayoutParams();
-                    params.rowSpec = GridLayout.spec(2, GridLayout.FILL, 1f);
-                    params.columnSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
-                    ((CardView)findViewById(R.id.annualEvents)).setLayoutParams(params);
-
-                    ((GridLayout)findViewById(R.id.gridLayout)).setRowCount(3);
-
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
 
     @Override
     public void onClick(View view) {
@@ -168,6 +118,53 @@ public class mainPage extends AppCompatActivity implements View.OnClickListener 
 
         discoverClubs=findViewById(R.id.discoverClubs);
         discoverClubs.setOnClickListener(this);
+
+        username = findViewById(R.id.username);
+        username.setText(this.getIntent().getStringExtra("username"));
+        db = FirebaseDatabase.getInstance();
+        adminsRef = db.getReference("admins");
+        adminsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (!snapshot.hasChild(username.getText().toString())){
+                    ((GridLayout)findViewById(R.id.gridLayout)).removeViewAt(0);
+                    ((GridLayout)findViewById(R.id.gridLayout)).removeViewAt(2);
+
+                    GridLayout.LayoutParams params = (GridLayout.LayoutParams) findViewById(R.id.eventsToAttendCard).getLayoutParams();
+                    params.rowSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
+                    params.columnSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
+                    ((CardView)findViewById(R.id.eventsToAttendCard)).setLayoutParams(params);
+
+                    params = (GridLayout.LayoutParams) findViewById(R.id.profileCard).getLayoutParams();
+                    params.rowSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
+                    params.columnSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
+                    ((CardView)findViewById(R.id.profileCard)).setLayoutParams(params);
+
+                    params = (GridLayout.LayoutParams) findViewById(R.id.EventsRecommendationCard).getLayoutParams();
+                    params.rowSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
+                    params.columnSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
+                    ((CardView)findViewById(R.id.EventsRecommendationCard)).setLayoutParams(params);
+
+                    params = (GridLayout.LayoutParams) findViewById(R.id.discoverClubs).getLayoutParams();
+                    params.rowSpec = GridLayout.spec(2, GridLayout.FILL, 1f);
+                    params.columnSpec = GridLayout.spec(1, GridLayout.FILL, 1f);
+                    ((CardView)findViewById(R.id.discoverClubs)).setLayoutParams(params);
+
+                    params = (GridLayout.LayoutParams) findViewById(R.id.annualEvents).getLayoutParams();
+                    params.rowSpec = GridLayout.spec(2, GridLayout.FILL, 1f);
+                    params.columnSpec = GridLayout.spec(0, GridLayout.FILL, 1f);
+                    ((CardView)findViewById(R.id.annualEvents)).setLayoutParams(params);
+
+                    ((GridLayout)findViewById(R.id.gridLayout)).setRowCount(3);
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
 

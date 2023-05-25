@@ -39,6 +39,7 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="-114dp">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -56,6 +57,30 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/variable"/>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/photoBox"
+                android:layout_width="170dp"
+                android:layout_height="130dp"
+                android:backgroundTint="@color/lightbackground"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="30dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/eventPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/evn"
+
+                    android:layout_marginRight="3dp"
+
+                    />
+
+
+
+            </androidx.cardview.widget.CardView>
             <TextView
                 android:id="@+id/titleRequired"
                 android:layout_width="match_parent"
