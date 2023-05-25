@@ -242,9 +242,6 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
                             code = new CodeGenerator().getCode();
                             ref.child(eventId).child("is_private").setValue("true");
                             ref.child(eventId).child("eventCode").setValue(code);
-                            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                            ClipData clip = ClipData.newPlainText("label", code);
-                            clipboard.setPrimaryClip(clip);
                             displayCodeDialog();
                         }else {
                             ref.child(eventId).child("is_private").setValue("false");
